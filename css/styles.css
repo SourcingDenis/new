@@ -154,7 +154,7 @@ main {
 .about {
   padding: 1rem var(--body-padding) 0;
   flex: 1 0 1;;
-  text-align: center; /* Centering the content in the about section, if not already centered */
+  text-align: left; /* Centering the content in the about section, if not already centered */
 }
 
 @media screen and (min-width: 800px) {
