@@ -28,7 +28,7 @@
   --mode-icon: '🌑';
   --mode-icon-opacity: '1';
   --border-color: var(--text-color);
-  --lighting-color:  #E0E0E0;); /* Color for the lighting effect */
+  --lighting-color:  #E0E0E0; /* Color for the lighting effect */
 }
 
 /* Dark Mode
@@ -71,16 +71,18 @@
 }
 
 html {
-  height: 100vh;
-  padding: var(--body-border);
+  height: 100vh; /* Full viewport height */
+  padding: 0; /* Remove padding to allow the effect to reach the edges */
+  margin: 0; /* Remove margin */
   background-color: var(--background-alt);
+  overflow: hidden; /* Prevents scrollbars caused by animation */
   animation: lighting 2s linear infinite; /* Lighting animation */
 }
 
 body {
-  min-height: calc(100vh - var(--body-border)*2);
+  min-height: 100vh; /* Ensure body takes full viewport height */
   margin: 0;
-  padding: 2.5vw 2.5vw 5vw;
+  padding: 2.5vw; /* Adjusted padding */
   display: flex;
   flex-direction: column;
   gap: 1vw;
@@ -90,6 +92,7 @@ body {
   font-family: "Inter UI", Helvetica, Arial, sans-serif;
   line-height: 1.4;
   color: var(--text-color);
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 body.no-js {
