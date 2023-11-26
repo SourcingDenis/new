@@ -28,7 +28,7 @@
   --mode-icon: '🌑';
   --mode-icon-opacity: '1';
   --border-color: var(--text-color);
-  --lighting-color: var(--color-yellow-Y500); /* Color for the lighting effect */
+  --lighting-color:  #E0E0E0;); /* Color for the lighting effect */
 }
 
 /* Dark Mode
