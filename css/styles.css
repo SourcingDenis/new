@@ -4,6 +4,7 @@
 
 /* Variables
 ---------------------------*/
+
 :root {
   --color-teal-T1000: #052028;
   --color-teal-T900: #054861;
@@ -28,27 +29,23 @@
   --mode-icon-opacity: '1';
   --border-color: var(--text-color);
   --lighting-color:  #E0E0E0; /* Color for the lighting effect */
-
-  --highlight-color-light: #FFCF50; /* Light theme highlight color */
-  --highlight-color-dark: #054861;  /* Dark theme highlight color */
 }
 
 /* Dark Mode
 ---------------------------*/
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-mode: 'dark';
+  }
+
+  :root:not([data-user-color-scheme]) {
     --background: var(--color-teal-T1000);
     --background-alt: var(--color-teal-T900);
     --text-color: var(--color-gray-L200);
     --border-color: var(--color-teal-T800);
     --mode-icon: '🌕';
     --mode-icon-opacity: .85;
-  }
-
-  ::selection {
-    background-color: var(--highlight-color-dark); /* Use dark theme highlight */
-    color: var(--color-gray-L200);
   }
 }
 
@@ -59,22 +56,18 @@
   --border-color: var(--color-teal-T800);
   --mode-icon: '🌕';
   --mode-icon-opacity: .85;
-
-  ::selection {
-    background-color: var(--highlight-color-dark); /* Use dark theme highlight */
-    color: var(--color-gray-L200);
-  }
 }
 
 /* Global
 ---------------------------*/
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 ::selection {
-  background-color: var(--highlight-color-light); /* Default to light theme highlight */
-  color: var(--color-gray-L700);
+  background-color: var(--color-red-R600);
+  color: var(--color-gray-L200);
 }
 
 html {
