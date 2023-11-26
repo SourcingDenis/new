@@ -71,29 +71,40 @@
 }
 
 html {
-  height: 100vh; /* Full viewport height */
-  padding: 0; /* Remove padding to allow the effect to reach the edges */
-  margin: 0; /* Remove margin */
+  height: 100vh;
+  padding: 0;
+  margin: 0;
   background-color: var(--background-alt);
-  overflow: hidden; /* Prevents scrollbars caused by animation */
-  animation: lighting 2s linear infinite; /* Lighting animation */
+  overflow: hidden;
+  animation: lighting 2s linear infinite;
 }
 
 body {
-  min-height: 100vh; /* Ensure body takes full viewport height */
+  min-height: 100vh;
   margin: 0;
-  padding: 2.5vw; /* Adjusted padding */
+  padding: 2.5vw;
   display: flex;
   flex-direction: column;
   gap: 1vw;
   background-color: var(--background);
-  border-radius: 5px;
-  font-size: 112.5%;
-  font-family: "Inter UI", Helvetica, Arial, sans-serif;
-  line-height: 1.4;
-  color: var(--text-color);
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
 }
+
+@keyframes lighting {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--lighting-color), 0 0 15px var(--lighting-color) inset;
+  }
+  25% {
+    box-shadow: 15px 0 15px var(--lighting-color), 15px 0 15px var(--lighting-color) inset;
+  }
+  50% {
+    box-shadow: 0 15px 15px var(--lighting-color), 0 15px 15px var(--lighting-color) inset;
+  }
+  75% {
+    box-shadow: -15px 0 15px var(--lighting-color), -15px 0 15px var(--lighting-color) inset;
+  }
+}
+
 
 body.no-js {
   padding-top: 5vw;
@@ -278,19 +289,4 @@ main {
 .links > a:focus,
 .links > a:focus > strong {
   background-color: var(--background-alt);
-}
-
-@keyframes lighting {
-  0%, 100% {
-    box-shadow: 0 0 15px var(--lighting-color), 0 0 15px var(--lighting-color) inset;
-  }
-  25% {
-    box-shadow: 15px 0 15px var(--lighting-color), 15px 0 15px var(--lighting-color) inset;
-  }
-  50% {
-    box-shadow: 0 15px 15px var(--lighting-color), 0 15px 15px var(--lighting-color) inset;
-  }
-  75% {
-    box-shadow: -15px 0 15px var(--lighting-color), -15px 0 15px var(--lighting-color) inset;
-  }
 }
