@@ -1,9 +1,4 @@
-/* Fonts
---------------------------*/
 @import url("https://rsms.me/inter/inter-ui.css");
-
-/* Variables
----------------------------*/
 
 :root {
   --color-teal-T1000: #052028;
@@ -23,16 +18,13 @@
   --body-padding: 3vw;
   --color-mode: 'light';
   --background: var(--color-yellow-Y500);
-  --background-alt:  var(--color-yellow-Y400);
+  --background-alt: var(--color-yellow-Y400);
   --text-color: var(--color-gray-L700);
   --mode-icon: '🌑';
   --mode-icon-opacity: '1';
   --border-color: var(--text-color);
-  --lighting-color:  #E0E0E0; /* Color for the lighting effect */
+  --lighting-color: #E0E0E0;
 }
-
-/* Dark Mode
----------------------------*/
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -58,9 +50,6 @@
   --mode-icon-opacity: .85;
 }
 
-/* Global
----------------------------*/
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -74,7 +63,7 @@ html {
   height: 100vh;
   padding: var(--body-border);
   background-color: var(--background-alt);
-  animation: lighting 2s linear infinite; /* Lighting animation */
+  animation: lighting 2s linear infinite;
 }
 
 body {
@@ -95,9 +84,6 @@ body {
 body.no-js {
   padding-top: 5vw;
 }
-
-/* Header
----------------------------*/
 
 header {
   display: flex;
@@ -134,9 +120,6 @@ body.no-js .toggle-button {
   outline: 2px solid var(--text-color);
 }
 
-/* Main
----------------------------*/
-
 main {
   display: flex;
   flex-direction: column;
@@ -150,12 +133,10 @@ main {
   }
 }
 
-/* About section
----------------------------*/
 .about {
   padding: 1rem var(--body-padding) 0;
-  flex: 1 0 1;;
-  text-align: left; /* Centering the content in the about section, if not already centered */
+  flex: 1 0 1;
+  text-align: left;
 }
 
 @media screen and (min-width: 800px) {
@@ -166,7 +147,7 @@ main {
 }
 
 .about,
-.links {
+.social-cards {
   border-top: 4px solid var(--border-color);
 }
 
@@ -188,93 +169,98 @@ main {
 }
 
 .custom-gif-class {
-  max-width: 100%; /* Ensuring the GIF is responsive and does not overflow */
-  height: auto; /* Maintaining the aspect ratio of the GIF */
-  display: block; /* To display the GIF as a block-level element */
-  margin: 0 auto 2rem; /* Adding some space below the GIF and centering horizontally */
-}
-/* Links section
----------------------------*/
-
-.links {
-  display: flex;
-  flex-direction: column;
-  flex: 2;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 2rem;
 }
 
-.links > a {
-  padding-right: var(--body-padding);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex: 1;;
-  border-bottom: 1px solid var(--border-color);
-  text-decoration: none;
-  font-size: clamp(1.5rem, 5vw, 10rem);
-  color: var(--text-color);
+.social-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
 }
 
-.links > a > strong {
-  padding-left: var(--body-padding);
-  padding-right: .5em;
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: var(--background);
-  z-index: 1;
-}
-
-.links > a > strong:after {
-  content: '';
-  width: 1px;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  background-color: var(--text-color);
-  opacity: 0;
-  transition: opacity 100ms ease-in-out;
-  transform: translateY(-50%);
-}
-
-@media screen and (min-width: 800px) {
-  .links > a > strong:after {
-    height: 80%;
-  }
-}
-
-.links > a:hover > strong:after,
-.links > a:focus > strong:after {
-  opacity: .5;
-}
-
-.links > a > span {
-  position: relative;
-  font-size: clamp(1rem, 2vw, 2rem);
-  transition: transform 150ms ease-in-out;
-  transform: translateX(-100%);
-  z-index: 0;
-}
-
-@media (prefers-reduced-motion) {
-  .links > a > span {
-    transition: none;
-  }
-}
-
-.links > a:hover > span,
-.links > a:focus > span  {
-  transform: translateX(1em);
-}
-
-.links > a:focus {
-  outline: none;
-}
-
-.links > a:focus,
-.links > a:focus > strong {
+.card {
   background-color: var(--background-alt);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.card.in-view {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--color-gray-D200);
+  margin-bottom: 1rem;
+}
+
+.card a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-teal-T800);
+  color: var(--color-gray-L200);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+  background-color: var(--color-teal-T900);
+}
+
+.social-embeds {
+  padding: 2rem;
+}
+
+.embed-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.twitter-embed,
+.linkedin-embed,
+.medium-embed {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes lighting {
@@ -289,5 +275,11 @@ main {
   }
   75% {
     box-shadow: -15px 0 15px var(--lighting-color), -15px 0 15px var(--lighting-color) inset;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .social-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
