@@ -4,32 +4,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-
     <!-- Open Graph Meta Tags -->
     <meta property="og:url" content="https://sourcingdenis.github.io/new/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="@sourcingdenis - about me" />
     <meta property="og:description" content="A list of places you can find me on the web." />
     <meta property="og:image" content="https://i.imgur.com/SLpGnFS.jpeg" />
-    <meta property="og:image:width" content="950" /> <!-- Замените 1200 на ширину вашего изображения -->
-    <meta property="og:image:height" content="450" /> <!-- Замените 630 на высоту вашего изображения -->
-
-    <!-- The name of your site that shows up in the browser tab -->
+    <meta property="og:image:width" content="950" />
+    <meta property="og:image:height" content="450" />
     <title>@sourcingdenis - about me</title>
-
-    <!-- Describe what your site is about -->
     <meta name="description" content="A list of places you can find me on the web.">
-
-    <!-- This is the small icon that shows up in the browser tab -->
     <link rel="shortcut icon" href="images/favicon.ico">
-
-    <!-- Styling for this site -->
     <link rel="stylesheet" href="css/styles.css">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </head>
-  <!-- This class is removed if the user has JavaScript enabled -->
   <body class="no-js">
     <header>
-      <!-- Dark mode toggle -->
       <div class="mode-toggle">
         <button class="[ toggle-button ] [ js-mode-toggle ]">
           <span class="toggle-icon" aria-hidden="true"></span>
@@ -39,43 +29,64 @@
     </header>
     <main>
       <section class="about">
-        <!-- Inserted GIF image -->
         <h1>Denys Dinkevych</h1>
         <p>Proven in his field, Denys is a dynamic <br>talent sourcing leader whose strengths lie in teamwork and sustained performance.</p>
         <img src="https://i.imgur.com/je5QUmK.gif" alt="Descriptive text about the GIF" class="custom-gif-class">
-        
       </section>
-      <nav class="links">
-        <!-- Update <a href=""> to point to your accounts -->
-        <!-- Update <span> to your usernames -->
-        <a href="mailto:den.dinkevych.edu@gmail.com" target="_blank">
-          <strong>E-mail</strong>
-          <span>hello@sourcingdenis.com</span>
-        </a>
-        <a href="https://twitter.com/osintstash" target="_blank">
-          <strong>Twitter</strong>
-          <span>@osintstash</span>
-        </a>
-        <a href="https://linkedin.com/in/sourcingdenis/" target="_blank">
-          <strong>LinkedIn</strong>
-          <span>@sourcingdenis</span>
-        </a>
-        <a href="https://sourcingdenis.medium.com/" target="_blank">
-          <strong>Medium</strong>
-          <span>sourcingdenis.medium.com</span>
-        </a>
-        <a href="https://youtube.com/@diskevich/" target="_blank">
-          <strong>YouTube</strong>
-          <span>@diskevich</span>
-        </a>
-        <a href="https://sourcingdenis.t.me/" target="_blank">
-          <strong>Telegram</strong>
-          <span>sourcingdenis.t.me</span>
-        </a>
-      </nav>
+      <section class="social-cards">
+        <div class="card" data-platform="email">
+          <img src="path/to/email-icon.svg" alt="Email icon">
+          <h3>E-mail</h3>
+          <p>hello@sourcingdenis.com</p>
+          <a href="mailto:den.dinkevych.edu@gmail.com" target="_blank">Contact</a>
+        </div>
+        <div class="card" data-platform="twitter">
+          <img src="path/to/twitter-icon.svg" alt="Twitter icon">
+          <h3>Twitter</h3>
+          <p>@osintstash</p>
+          <a href="https://twitter.com/osintstash" target="_blank">Follow</a>
+        </div>
+        <div class="card" data-platform="linkedin">
+          <img src="path/to/linkedin-icon.svg" alt="LinkedIn icon">
+          <h3>LinkedIn</h3>
+          <p>@sourcingdenis</p>
+          <a href="https://linkedin.com/in/sourcingdenis/" target="_blank">Connect</a>
+        </div>
+        <div class="card" data-platform="medium">
+          <img src="path/to/medium-icon.svg" alt="Medium icon">
+          <h3>Medium</h3>
+          <p>sourcingdenis.medium.com</p>
+          <a href="https://sourcingdenis.medium.com/" target="_blank">Read</a>
+        </div>
+        <div class="card" data-platform="youtube">
+          <img src="path/to/youtube-icon.svg" alt="YouTube icon">
+          <h3>YouTube</h3>
+          <p>@diskevich</p>
+          <a href="https://youtube.com/@diskevich/" target="_blank">Subscribe</a>
+        </div>
+        <div class="card" data-platform="telegram">
+          <img src="path/to/telegram-icon.svg" alt="Telegram icon">
+          <h3>Telegram</h3>
+          <p>sourcingdenis.t.me</p>
+          <a href="https://sourcingdenis.t.me/" target="_blank">Message</a>
+        </div>
+      </section>
+      <section class="social-embeds">
+        <h2>Latest Updates</h2>
+        <div class="embed-container">
+          <div class="twitter-embed">
+            <a class="twitter-timeline" data-height="400" data-theme="light" href="https://twitter.com/osintstash">Tweets by @osintstash</a>
+          </div>
+          <div class="linkedin-embed">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7064938617371455488" height="400" width="300" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+          </div>
+          <div class="medium-embed">
+            <a class="m-story" data-collapsed="true" href="https://medium.com/@sourcingdenis/latest">Latest on Medium</a>
+          </div>
+        </div>
+      </section>
     </main>
-
-    <!-- Dark mode button functionality -->
-    <script src="js/dark-mode.js"></script>
+    <script src="js/script.js"></script>
+    <script async src="https://medium.com/@sourcingdenis/latest"></script>
   </body>
 </html>
