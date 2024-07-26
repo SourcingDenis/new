@@ -1,4 +1,9 @@
+/* Fonts
+--------------------------*/
 @import url("https://rsms.me/inter/inter-ui.css");
+
+/* Variables
+---------------------------*/
 
 :root {
   --color-teal-T1000: #052028;
@@ -18,13 +23,16 @@
   --body-padding: 3vw;
   --color-mode: 'light';
   --background: var(--color-yellow-Y500);
-  --background-alt: var(--color-yellow-Y400);
+  --background-alt:  var(--color-yellow-Y400);
   --text-color: var(--color-gray-L700);
   --mode-icon: '🌑';
   --mode-icon-opacity: '1';
   --border-color: var(--text-color);
-  --lighting-color: #E0E0E0;
+  --lighting-color:  #E0E0E0; /* Color for the lighting effect */
 }
+
+/* Dark Mode
+---------------------------*/
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -50,6 +58,9 @@
   --mode-icon-opacity: .85;
 }
 
+/* Global
+---------------------------*/
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -63,7 +74,7 @@ html {
   height: 100vh;
   padding: var(--body-border);
   background-color: var(--background-alt);
-  animation: lighting 2s linear infinite;
+  animation: lighting 2s linear infinite; /* Lighting animation */
 }
 
 body {
@@ -79,17 +90,18 @@ body {
   font-family: "Inter UI", Helvetica, Arial, sans-serif;
   line-height: 1.4;
   color: var(--text-color);
-  transition: all 0.3s ease;
 }
 
 body.no-js {
   padding-top: 5vw;
 }
 
+/* Header
+---------------------------*/
+
 header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
   flex: 1 0 1;
 }
 
@@ -122,6 +134,9 @@ body.no-js .toggle-button {
   outline: 2px solid var(--text-color);
 }
 
+/* Main
+---------------------------*/
+
 main {
   display: flex;
   flex-direction: column;
@@ -135,10 +150,12 @@ main {
   }
 }
 
+/* About section
+---------------------------*/
 .about {
   padding: 1rem var(--body-padding) 0;
-  flex: 1 0 1;
-  text-align: left;
+  flex: 1 0 1;;
+  text-align: left; /* Centering the content in the about section, if not already centered */
 }
 
 @media screen and (min-width: 800px) {
@@ -171,11 +188,13 @@ main {
 }
 
 .custom-gif-class {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 2rem;
+  max-width: 100%; /* Ensuring the GIF is responsive and does not overflow */
+  height: auto; /* Maintaining the aspect ratio of the GIF */
+  display: block; /* To display the GIF as a block-level element */
+  margin: 0 auto 2rem; /* Adding some space below the GIF and centering horizontally */
 }
+/* Links section
+---------------------------*/
 
 .links {
   display: flex;
@@ -189,18 +208,11 @@ main {
   overflow: hidden;
   display: flex;
   align-items: center;
-  flex: 1;
+  flex: 1;;
   border-bottom: 1px solid var(--border-color);
   text-decoration: none;
   font-size: clamp(1.5rem, 5vw, 10rem);
   color: var(--text-color);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.links > a.animate-in {
-  animation: fadeInUp 0.5s ease forwards;
 }
 
 .links > a > strong {
@@ -211,7 +223,6 @@ main {
   align-items: center;
   background-color: var(--background);
   z-index: 1;
-  transition: transform 0.3s ease;
 }
 
 .links > a > strong:after {
@@ -257,26 +268,13 @@ main {
   transform: translateX(1em);
 }
 
-.links > a:hover,
 .links > a:focus {
-  background-color: var(--background-alt);
-  transform: translateY(-5px);
+  outline: none;
 }
 
-.links > a:hover > strong,
+.links > a:focus,
 .links > a:focus > strong {
-  transform: scale(1.05);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background-color: var(--background-alt);
 }
 
 @keyframes lighting {
@@ -292,55 +290,4 @@ main {
   75% {
     box-shadow: -15px 0 15px var(--lighting-color), -15px 0 15px var(--lighting-color) inset;
   }
-}
-
-/* Easter Egg Button Styles */
-.easter-egg-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  opacity: 0.1;
-  transition: opacity 0.3s ease;
-}
-
-.easter-egg-button:hover {
-  opacity: 1;
-}
-
-/* Psychedelic Mode Styles */
-body.psychedelic-mode {
-  --background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
-  --background-alt: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
-  --text-color: #ffffff;
-  --border-color: #00ff00;
-  font-family: 'Comic Sans MS', cursive;
-  animation: backgroundShift 10s linear infinite;
-}
-
-body.psychedelic-mode .links > a {
-  animation: textColorShift 5s linear infinite;
-}
-
-body.psychedelic-mode .about h1 {
-  animation: textSizeShift 3s ease-in-out infinite;
-}
-
-@keyframes backgroundShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes textColorShift {
-  0% { color: #ff0000; }
-  33% { color: #00ff00; }
-  66% { color: #0000ff; }
-  100% { color: #ff0000; }
-}
-
-@keyframes textSizeShift {
-  0% { font-size: 2rem; }
-  50% { font-size: 2.5rem; }
-  100% { font-size: 2rem; }
 }
