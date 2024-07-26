@@ -64,9 +64,11 @@ applySetting();
 
 // Animations
 document.addEventListener('DOMContentLoaded', (event) => {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card, index) => {
-        card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1}s`;
+    const links = document.querySelectorAll('.links > a');
+    links.forEach((link, index) => {
+        setTimeout(() => {
+            link.classList.add('animate-in');
+        }, index * 100);
     });
 });
 
@@ -81,12 +83,68 @@ function isInViewport(element) {
     );
 }
 
-// Animate cards when they come into view
+// Animate links when they come into view
 window.addEventListener('scroll', () => {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        if (isInViewport(card)) {
-            card.classList.add('in-view');
+    const links = document.querySelectorAll('.links > a');
+    links.forEach(link => {
+        if (isInViewport(link) && !link.classList.contains('animate-in')) {
+            link.classList.add('animate-in');
         }
     });
 });
+
+// Easter Egg Functionality
+const easterEggButton = document.querySelector('.easter-egg-button');
+let psychedelicMode = false;
+
+easterEggButton.addEventListener('click', () => {
+    psychedelicMode = !psychedelicMode;
+    if (psychedelicMode) {
+        body.classList.add('psychedelic-mode');
+        startPsychedelicEffects();
+    } else {
+        body.classList.remove('psychedelic-mode');
+        stopPsychedelicEffects();
+    }
+});
+
+function startPsychedelicEffects() {
+    // Add any additional psychedelic effects here
+    document.querySelectorAll('.links > a').forEach(link => {
+        link.style.transition = 'all 0.5s ease';
+    });
+}
+
+function stopPsychedelicEffects() {
+    // Remove any additional psychedelic effects here
+    document.querySelectorAll('.links > a').forEach(link => {
+        link.style.transition = '';
+    });
+}
+
+// Easter Egg Key Combination
+let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konamiCodePosition = 0;
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === konamiCode[konamiCodePosition]) {
+        konamiCodePosition++;
+        if (konamiCodePosition === konamiCode.length) {
+            activatePsychedelicMode();
+            konamiCodePosition = 0;
+        }
+    } else {
+        konamiCodePosition = 0;
+    }
+});
+
+function activatePsychedelicMode() {
+    psychedelicMode = !psychedelicMode;
+    if (psychedelicMode) {
+        body.classList.add('psychedelic-mode');
+        startPsychedelicEffects();
+    } else {
+        body.classList.remove('psychedelic-mode');
+        stopPsychedelicEffects();
+    }
+}
